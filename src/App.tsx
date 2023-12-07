@@ -7,7 +7,6 @@ import Cat from "./data/cat";
 import CatCard from "./components/cat_card";
 
 function App(): JSX.Element {
-  // JavaScript/TypeScript code can be inserted here!
   const [cats, setCats] = useState<Array<Cat>>([
     {
       name: "Little Miss Purrfect",
@@ -90,9 +89,9 @@ function App(): JSX.Element {
 
       <main>
         <div className="cards__wrapper">
-          {cats.map((cat) => {
-            return <CatCard />;
-          })}
+          {cats.map((cat) => (
+            <CatCard />
+          ))}
         </div>
       </main>
 
