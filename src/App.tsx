@@ -4,6 +4,7 @@ import Navbar from "./components/navbar";
 import Header from "./components/header";
 import Footer from "./components/footer";
 import Cat from "./data/cat";
+import CatCard from "./components/cat_card";
 
 function App(): JSX.Element {
   // JavaScript/TypeScript code can be inserted here!

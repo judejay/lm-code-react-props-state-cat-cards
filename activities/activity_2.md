@@ -10,9 +10,9 @@ Then read on, to find out how...
 
 ## Step 1
 
--   In the `components` folder create a file/component called `cat_card.tsx`
+- In the `components` folder create a file/component called `cat_card.tsx`
 
--   Add this code to `cat_card.tsx`:
+- Add this code to `cat_card.tsx`:
 
 ```JavaScript
 const CatCard : React.FC = () =>
@@ -26,11 +26,11 @@ const CatCard : React.FC = () =>
 export default CatCard;
 ```
 
--   Save your file
+- Save your file
 
 ## Step 2
 
--   At the top of `App.tsx` import your cat card
+- At the top of `App.tsx` import your cat card
 
 <details>
 <summary>Click here to see the answer</summary>
