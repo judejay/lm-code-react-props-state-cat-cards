@@ -9,6 +9,7 @@ import { Route, Routes, useLocation } from "react-router-dom";
 import Cats from "./components/cats";
 import IPet from "./data/pet";
 import Dogs from "./components/dogs";
+import Home from "./components/home";
 
 function App(): JSX.Element {
   const [cats, setCats] = useState<Array<IPet>>(catData);
@@ -22,13 +23,16 @@ function App(): JSX.Element {
       <Navbar />
       {siteLocation.includes("dogs") ? (
         <Header pets={"Dogs"} petCount={dogCount} />
-      ) : (
+      ) : siteLocation.includes("cats") ? (
         <Header pets={"Cats"} petCount={catCount} />
+      ) : (
+        <Header pets={"Pets"} petCount={catCount + dogCount} />
       )}
 
       <Routes>
         <Route path="/cats" element={<Cats cats={cats} />} />
         <Route path="/dogs" element={<Dogs dogs={dogs} />} />
+        <Route path="/home" element={<Home />} />
       </Routes>
       <Footer />
     </>
