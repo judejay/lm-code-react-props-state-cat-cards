@@ -26,7 +26,7 @@ function App(): JSX.Element {
       ) : siteLocation.includes("cats") ? (
         <Header pets={"Cats"} petCount={catCount} />
       ) : (
-        <Header pets={"Pets"} petCount={catCount + dogCount} />
+        <Header pets={"Cats & Dogs"} petCount={catCount + dogCount} />
       )}
 
       <Routes>
