@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-interface CatImageProps {
+interface ImageProps {
   url: string;
   altText: string;
   licenceType: string;
@@ -10,7 +10,7 @@ interface CatImageProps {
   attributionUrl?: string;
 }
 
-const CatImage: React.FC<CatImageProps> = ({
+const Image: React.FC<ImageProps> = ({
   url,
   altText,
   licenceType,
@@ -34,4 +34,4 @@ const CatImage: React.FC<CatImageProps> = ({
   );
 };
 
-export default CatImage;
+export default Image;

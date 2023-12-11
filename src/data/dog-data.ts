@@ -1,7 +1,7 @@
-import Dog from "./dog";
+import IPet from "./pet";
 import { v4 as uuidv4 } from "uuid";
 
-const dogs: Array<Dog> = [
+const dogs: Array<IPet> = [
   {
     name: "Floofus",
     species: "Puppy",
@@ -23,4 +23,3 @@ const dogs: Array<Dog> = [
 ];
 
 dogs.forEach((dog) => (dog.id = uuidv4()));
-console.log(dogs);

@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from "uuid";
 
-import Cat from "./cat";
+import Cat from "./pet";
 
 const catData: Array<Cat> = [
   {
@@ -75,15 +75,8 @@ const catData: Array<Cat> = [
     favFoods: ["milk"],
     birthYear: 2021,
   },
-  {
-    name: "Captain Catface",
-    species: "Sea Cattain",
-    favFoods: ["fish, rum"],
-    birthYear: 2016,
-  },
 ];
 
 catData.forEach((cat) => (cat.id = uuidv4()));
-console.log(catData);
 
 export default catData;
