@@ -13,25 +13,23 @@ import Dogs from "./components/dogs";
 function App(): JSX.Element {
   const [cats, setCats] = useState<Array<IPet>>(catData);
   const [dogs, setDogs] = useState<Array<IPet>>(dogData);
-  const location = useLocation(); // React Hook
+  const location = useLocation();
   const siteLocation = location.pathname;
-  console.log(siteLocation); // returns relative path, without domain nam
   const catCount = cats.length;
   const dogCount = dogs.length;
   return (
     <>
       <Navbar />
       {siteLocation.includes("dogs") ? (
-        <Header pets={"Dogs"} catCount={dogCount} />
+        <Header pets={"Dogs"} petCount={dogCount} />
       ) : (
-        <Header pets={"Cats"} catCount={catCount} />
+        <Header pets={"Cats"} petCount={catCount} />
       )}
 
       <Routes>
         <Route path="/cats" element={<Cats cats={cats} />} />
         <Route path="/dogs" element={<Dogs dogs={dogs} />} />
       </Routes>
-
       <Footer />
     </>
   );
