@@ -23,3 +23,5 @@ const dogs: Array<IPet> = [
 ];
 
 dogs.forEach((dog) => (dog.id = uuidv4()));
+
+export default dogs;
