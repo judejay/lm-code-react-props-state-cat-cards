@@ -1,10 +1,29 @@
 import React, { ChangeEvent, FormEvent, useState, EventHandler } from "react";
 import IPet from "../data/pet";
-interface HomeProps {}
+import { v4 as uuidv4 } from "uuid";
+
+interface HomeProps {
+  setCats: React.Dispatch<React.SetStateAction<Array<IPet>>>;
+  setDogs: React.Dispatch<React.SetStateAction<Array<IPet>>>;
+  cats: Array<IPet>;
+  dogs: Array<IPet>;
+}
 type HtmlEvent = React.ChangeEvent<HTMLSelectElement>;
-const Home: React.FC<HomeProps> = () => {
+const Home: React.FC<HomeProps> = ({ setCats, setDogs, cats, dogs }) => {
   function handleSubmit(event: FormEvent<HTMLFormElement>): void {
-    throw new Error("Function not implemented.");
+    event.preventDefault();
+    if (mySelectInputValue === "cat") {
+      setCats([
+        ...cats,
+        {
+          species: "cat",
+          name: myTextInputValue.name!,
+          favFoods: myTextInputValue.favFoods!,
+          birthYear: myTextInputValue.birthYear!,
+          id: uuidv4(),
+        },
+      ]);
+    }
   }
 
   const [myTextInputValue, setMyTextInputValue] = useState<Partial<IPet>>({

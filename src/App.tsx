@@ -32,7 +32,12 @@ function App(): JSX.Element {
       <Routes>
         <Route path="/cats" element={<Cats cats={cats} />} />
         <Route path="/dogs" element={<Dogs dogs={dogs} />} />
-        <Route path="/home" element={<Home />} />
+        <Route
+          path="/home"
+          element={
+            <Home cats={cats} dogs={dogs} setDogs={setDogs} setCats={setCats} />
+          }
+        />
       </Routes>
       <Footer />
     </>
