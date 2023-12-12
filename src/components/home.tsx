@@ -12,31 +12,41 @@ type HtmlEvent = React.ChangeEvent<HTMLSelectElement>;
 const Home: React.FC<HomeProps> = ({ setCats, setDogs, cats, dogs }) => {
   function handleSubmit(event: FormEvent<HTMLFormElement>): void {
     event.preventDefault();
-    if (mySelectInputValue === "cat") {
-      setCats([
-        ...cats,
-        {
-          species: "cat",
-          name: myTextInputValue.name!,
-          favFoods: myTextInputValue.favFoods!,
-          birthYear: myTextInputValue.birthYear!,
-          id: uuidv4(),
-        },
-      ]);
-    }
-    if (mySelectInputValue === "dog") {
-      setDogs([
-        ...dogs,
-        {
-          species: "dog",
-          name: myTextInputValue.name!,
-          favFoods: myTextInputValue.favFoods!,
-          birthYear: myTextInputValue.birthYear!,
-          id: uuidv4(),
-        },
-      ]);
+    if (
+      myTextInputValue.name &&
+      myTextInputValue.favFoods &&
+      myTextInputValue.birthYear
+    ) {
+      if (mySelectInputValue === "cat") {
+        setCats([
+          ...cats,
+          {
+            species: "cat",
+            name: myTextInputValue.name,
+            favFoods: myTextInputValue.favFoods,
+            birthYear: myTextInputValue.birthYear,
+            id: uuidv4(),
+          },
+        ]);
+      }
+      if (mySelectInputValue === "dog") {
+        setDogs([
+          ...dogs,
+          {
+            species: "dog",
+            name: myTextInputValue.name,
+            favFoods: myTextInputValue.favFoods,
+            birthYear: myTextInputValue.birthYear,
+            id: uuidv4(),
+          },
+        ]);
+      }
+    } else {
+      setInvalid(true);
     }
   }
+
+  const [invalid, setInvalid] = useState(false);
 
   const [myTextInputValue, setMyTextInputValue] = useState<Partial<IPet>>({
     name: "",
@@ -69,8 +79,7 @@ const Home: React.FC<HomeProps> = ({ setCats, setDogs, cats, dogs }) => {
 
       <form onSubmit={handleSubmit}>
         <div className="form__container">
-          <div>
-            {" "}
+          <div className="form__fields">
             <label className="form__label">
               Pick your favorite pet:
               <select value={mySelectInputValue} onChange={handleSelect}>
@@ -87,7 +96,7 @@ const Home: React.FC<HomeProps> = ({ setCats, setDogs, cats, dogs }) => {
                 value={myTextInputValue.name ?? ""}
                 name="name"
                 onChange={handleChange}
-              />{" "}
+              />
             </label>
           </div>
           <div>
@@ -98,7 +107,7 @@ const Home: React.FC<HomeProps> = ({ setCats, setDogs, cats, dogs }) => {
                 name="favFoods"
                 value={myTextInputValue["favFoods"] ?? []}
                 onChange={handleChange}
-              />{" "}
+              />
             </label>
           </div>
           <div>
@@ -109,14 +118,17 @@ const Home: React.FC<HomeProps> = ({ setCats, setDogs, cats, dogs }) => {
                 name="birthYear"
                 value={myTextInputValue.birthYear ?? new Date().getFullYear()}
                 onChange={handleChange}
-              />{" "}
+              />
             </label>
           </div>
           <div>
-            <input type="submit" value="Submit" />
-          </div>{" "}
-        </div>{" "}
+            <input className="input__submit" type="submit" value="Submit" />
+          </div>
+        </div>
       </form>
+      {invalid && (
+        <p className="form__data--invalid">Please enter all values</p>
+      )}
     </main>
   );
 };

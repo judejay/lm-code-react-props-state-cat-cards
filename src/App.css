@@ -47,6 +47,13 @@ body {
   flex-direction: column;
 }
 
+.form__fields {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-items: center;
+}
+
 .form__container {
   display: flex;
   justify-content: space-evenly;
@@ -158,6 +165,21 @@ body {
 
 .icon {
   max-width: 1.875em;
+}
+
+.form__data--invalid {
+  color: var(--red);
+  font-family: "SleepyCat";
+  font-size: 1.7rem;
+  margin: 0.2em;
+}
+.input__submit {
+  margin: 1em;
+}
+
+input,
+select {
+  margin-left: 1em;
 }
 
 @media only screen and (max-width: 405px) {
