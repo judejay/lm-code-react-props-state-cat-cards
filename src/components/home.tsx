@@ -24,6 +24,18 @@ const Home: React.FC<HomeProps> = ({ setCats, setDogs, cats, dogs }) => {
         },
       ]);
     }
+    if (mySelectInputValue === "dog") {
+      setDogs([
+        ...dogs,
+        {
+          species: "dog",
+          name: myTextInputValue.name!,
+          favFoods: myTextInputValue.favFoods!,
+          birthYear: myTextInputValue.birthYear!,
+          id: uuidv4(),
+        },
+      ]);
+    }
   }
 
   const [myTextInputValue, setMyTextInputValue] = useState<Partial<IPet>>({
