@@ -124,12 +124,12 @@ const Cats: React.FC<CatsProps> = ({ cats }) => {
         {cats.map((cat, index) => {
           return (
             <Card
-              url={images[index].image ?? "not found"}
-              altText={images[index].altText ?? ""}
-              licenceType={images[index].licenceType ?? ""}
-              licenceUrl={images[index].licenceUrl ?? ""}
-              attributionName={images[index].attributionName ?? ""}
-              attributionUrl={images[index].attributionUrl ?? ""}
+              url={images[index]?.image ?? ""}
+              altText={images[index]?.altText ?? ""}
+              licenceType={images[index]?.licenceType ?? ""}
+              licenceUrl={images[index]?.licenceUrl ?? ""}
+              attributionName={images[index]?.attributionName ?? ""}
+              attributionUrl={images[index]?.attributionUrl ?? ""}
               key={cat.id}
               catObject={cat}
             />

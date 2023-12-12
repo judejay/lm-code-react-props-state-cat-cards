@@ -75,6 +75,12 @@ const catData: Array<Cat> = [
     favFoods: ["milk"],
     birthYear: 2021,
   },
+  {
+    name: "Captain Catface",
+    species: "Sea Cattain",
+    favFoods: ["fish, rum"],
+    birthYear: 2016,
+  },
 ];
 
 catData.forEach((cat) => (cat.id = uuidv4()));

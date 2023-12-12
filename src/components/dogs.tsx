@@ -9,10 +9,10 @@ const Dogs: React.FC<DogsProps> = ({ dogs }) => {
   return (
     <main>
       <div className="cards__wrapper">
-        {dogs.map((cat, index) => (
+        {dogs.map((dog, index) => (
           <Card
-            key={cat.id}
-            catObject={cat}
+            key={dog.id}
+            catObject={dog}
             url={""}
             altText={""}
             licenceType={""}
